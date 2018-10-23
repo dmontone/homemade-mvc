@@ -6,5 +6,5 @@
 4. para rodar testes em ambiente de desenvolvimento local, rode ```npm test``` em um novo terminal/prompt de comando
 5. a versão de produção será compilada em ```/dist``` após rodar o comando ```npm run production```
 
-# Histórico de desenvolvimento
+# Descrição do desenvolvimento
 
