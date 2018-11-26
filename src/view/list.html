@@ -1,0 +1,22 @@
+<div>
+    <h1>Users List</h1>
+    <table>
+        <thead>
+            <tr>
+                <td width="25%">Name</td>
+                <td width="25%">CPF</td>
+                <td width="25%">Phone</td>
+                <td width="25%">Email</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr each="users" eachAs="user">
+                <td>{{ user.name }}</td>
+                <td>{{ user.cpf }}</td>
+                <td>{{ user.phone }}</td>
+                <td>{{ user.email }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="#/form" class="page-link">Add new user</a>
+</div>

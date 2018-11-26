@@ -1,0 +1,19 @@
+#app { max-width: 1024px; margin: 0 auto; width: 100%; padding: 20px 10px; }
+
+.page-link {
+    background: #00C8B3;
+    display: block;
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    color: #FFF;
+    text-decoration: none;
+    font-weight: 800;
+    text-transform: uppercase;
+    border-radius: 50px;
+    float: right;
+    &.secondary {
+        opacity: .5;
+    }
+}

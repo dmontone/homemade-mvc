@@ -1,10 +1,18 @@
-# Passos para reprodução
+JS MVC
+====================
 
-1. não que seja necessário dizer, mas a instalação do node é necessária antes de qualquer coisa
-2. rode ```npm install``` para instalar as dependências do projeto
-3. para o ambiente de desenvolvimento local, rode ```npm start```. em alguns segundos a aplicação será aberta no seu navegadr favorito.
-4. para rodar testes em ambiente de desenvolvimento local, rode ```npm test``` em um novo terminal/prompt de comando
-5. a versão de produção será compilada em ```/dist``` após rodar o comando ```npm run production```
+A pure JavaScript MVC app bundled with [Webpack](https://webpack.js.org/) and served with its Dev Server and [Jest](https://jestjs.io/) for testing. The CSS is preprocessed with [Sass](https://sass-lang.com/) and the JavaScript is written in ES6/7/8 thanks to [Babel](https://www.github.com/babel/babel/).
 
-# Descrição do desenvolvimento
+The app runs a router that watches for hashchange with data binding for display and form inputs.
 
+#Installation
+Clone this repository in you favourite directory and install dependencies with `npm install`. This assumes you already have [NodeJS](https://nodejs.org/) installed in your environment.
+
+#Development server
+Run `npm start` to start development server. It will automaticaly open the server with your default browser.
+
+#Testing
+To run test cases using Jest run `npm test`
+
+#Production build
+Build production package ind ist folder with `npm run production` 
