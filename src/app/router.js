@@ -38,10 +38,14 @@ class Router {
     updateRoute(){
 
         let hash = window.location.hash
+
+        if(!hash)
+            window.location.hash = '/'
+
         if(hash)
             hash = hash.substr(1)
         
-        this.activeView = this.resolveRoute()
+        this.activeView = this.resolveRoute(hash)
         const controller = new this.activeView.controller()
         
         controller.setTemplate( this.activeView.template )

@@ -13,8 +13,7 @@ export class ctrlList extends Controller {
         if(!this.checkStorage()) this.getInitalData()
 
         this.getInitalData = this.getInitalData.bind(this)
-        
-        this.parseUsers = this.parseUsers.bind(this)
+        this.parseUser = this.parseUser.bind(this)
         this.parseUsersBatch = this.parseUsersBatch.bind(this)
 
     }
@@ -32,21 +31,19 @@ export class ctrlList extends Controller {
     }
 
     async getInitalData(){
-        const request = await fetch('https://private-21e8de-rafaellucio.apiary-mock.com/users', {
-            method: 'GET'
-        })
+        const request = await fetch('https://private-21e8de-rafaellucio.apiary-mock.com/users')
         const users = await request.json()
         if(users && users.length) this.parseUsersBatch(users)
     }
 
-    parseUsers(user){
+    parseUser(user){
         this.setState({
             users: [ ...this.state.users, new UserModel(user) ]
         })
     }
 
     parseUsersBatch(users){
-        users.forEach( user => this.parseUsers(user) )
+        users.forEach( user => this.parseUser(user) )
         sessionStorage.setItem('users', JSON.stringify(users))
     }
 

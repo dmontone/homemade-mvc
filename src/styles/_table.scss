@@ -5,9 +5,15 @@ table {
     thead {
         background: #efeeed;
         color: #333;
-        border-bottom: 1px solid #333;
+        border-bottom: 1px solid #999;
         font-weight: 700;
-        line-height: 18px;
+        tr {
+            td { 
+                height: 30px;
+                line-height: 30px;
+                font-size: 18px;
+            }
+        }
     }
 
     tbody {
@@ -18,7 +24,8 @@ table {
 
     td {
         padding: 0 5px;
-        line-height: 20px;
+        line-height: 18px;
+        padding: 5px;
     }
 
 }

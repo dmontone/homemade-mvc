@@ -1,4 +1,4 @@
-const BRACKET_REGEX = /{{\s*([\w\.])+\s*}}/g
+const BRACKET_REGEX = /{{\s*([\w\[\].]*)\s*}}/g
 
 export default class TemplateParser {
 
@@ -37,8 +37,9 @@ export default class TemplateParser {
                 el.parentNode.insertBefore( dollyNode, el )
 
                 let html = dollyNode.outerHTML
-                html = html.replace(BRACKET_REGEX, (match, capture) => {
-                    const aliasRegex = new RegExp('^(' + stateAlias + ')')
+                html = html.replace(BRACKET_REGEX, match => {
+                    const aliasRegex = new RegExp('^(' + stateAlias + ')'),
+                          capture = match.replace(/{{\s*/, '').replace(/\s*}}/, '')
                     let replace = capture.replace(aliasRegex, stateProp + '[' + index + ']')
                     return '{{ ' + replace + ' }}'
                 })
@@ -53,10 +54,11 @@ export default class TemplateParser {
     parseBinds(){
         let html = this.el.outerHTML,
             state = this.state
-        html = html.replace(BRACKET_REGEX, (match, capture) => {
-            let result;
-            try{ result = eval( 'state.' + match.replace(/{{\s*/, '').replace(/\s*}}/, '') ) }
-            catch(e) { }
+        html = html.replace(BRACKET_REGEX, match => {
+            const capture = match.replace(/{{\s*/, '').replace(/\s*}}/, '');
+            let result = '';
+            try{ result = eval( 'state.' + capture ) }
+            catch(e) { console.error(e) }
             return result
         })
         const tempHolder = document.createElement('div')

@@ -24,7 +24,7 @@ export class UserModel {
             type: String,
             required: true,
             digits: true,
-            limit: 11,
+            limit: 14,
             rules: [
                 {
                     test: 'value.length > 0',
@@ -42,7 +42,7 @@ export class UserModel {
             type: String,
             digits: true,
             required: true,
-            limit: 11,
+            limit: 15,
             rules: [
                 {
                     test: 'value.length > 0',
@@ -83,7 +83,7 @@ export class UserModel {
     }
 
     set name(name) { this.uname.value = name || this.uname.default }
-    get name(){ return this.uname.value }
+    get name(){ return this.uname.value; }
     
     set cpf(cpf = ''){
         if(cpf && this.ucpf.digits){

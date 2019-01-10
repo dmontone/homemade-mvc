@@ -30,6 +30,8 @@ export class FormParser {
             field.errorDisplay.classList.add('errors')
             field.parentNode.appendChild( field.errorDisplay )
 
+            if(model['u' + prop].limit) field.maxLength = model['u' + prop].limit
+
             field.onkeyup = evt => {
                 
             }

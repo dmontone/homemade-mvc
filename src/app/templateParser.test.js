@@ -14,7 +14,18 @@ describe('TemplateParser Class', () => {
     })
 
     test('Loops parser', () => {
-        expect(1).toBe(1)
+        
+        const template = '<ul><li each="entries" eachAs="entry">{{ entry }}</li></ul>',
+              state = { entries: [ 'Entry 1', 'Entry 2', 'Entry 3' ] }
+
+        const templateParser = new TemplateParser(template, state),
+              wrapper = document.createElement(`div`)
+        wrapper.innerHTML = templateParser.view
+
+        const repeats = wrapper.querySelectorAll(`li`)
+
+        expect( repeats.length ).toBe( state.entries.length )
+
     })
 
 })

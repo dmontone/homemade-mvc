@@ -10,9 +10,7 @@ describe('Form parser class', () => {
     })
 
     test('Can find parseable form', () => {
-        const parser = new FormParser(document.getElementById('app'), {
-
-        })
+        const parser = new FormParser(document.getElementById('app'), {})
         expect( parser.form.model ).toBe('exampleForm')
     })
 

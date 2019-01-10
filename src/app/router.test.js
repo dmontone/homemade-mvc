@@ -7,7 +7,7 @@ describe('Router class', () => {
         document.body.innerHTML = '<div id="app">app</div>'
         window.location.hash = ''
     })
-    test('Resolves expected route and falls beack to default route', () => {
+    test('Resolves expected route or falls back to default route', () => {
 
         expect.assertions(3)
 
